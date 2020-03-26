@@ -748,6 +748,9 @@ class InHandler(Module, AutoCSR):
             ),
         ]
 
+        self.stall_status = CSRStatus(16)
+        self.comb += self.stall_status.status.eq(stall_status)
+
 class OutHandler(Module, AutoCSR):
     """
     Endpoint for Host->Device transaction
@@ -895,7 +898,7 @@ class OutHandler(Module, AutoCSR):
             ),
         ]
         # These are useful for debugging
-        # self.enable_status = CSRStatus(8, description)
+        # self.enable_status = CSRStatus(16)
         # self.comb += self.enable_status.status.eq(enable_status)
-        # self.stall_status = CSRStatus(8)
-        # self.comb += self.stall_status.status.eq(stall_status)
+        self.stall_status = CSRStatus(16)
+        self.comb += self.stall_status.status.eq(stall_status)
