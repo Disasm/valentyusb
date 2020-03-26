@@ -513,7 +513,7 @@ class SetupHandler(Module, AutoCSR):
                 # a DATA stage, this will be set to 1.
                 self.have_data_stage = have_data_stage = Signal()
 
-                # If the incoming `SETUP` token is an OUT packet, this
+                # If the incoming `SETUP` token is an IN packet, this
                 # will be 1.
                 self.is_in = is_in = Signal()
 
